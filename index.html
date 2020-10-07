@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, </title>
+    <style>
+        #loading,
+        #results {
+            display: none;
+        }
+
+        ;
+    </style>
+</head>
+
+<body class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card card-body text-center mt-5">
+                    <h1 class="heading display-5 pb-3">Unilag Aggregate Calculator</h1>
+                    <form id="load-form">
+                        <div class="form-group">
+                            <marquee behavior="" direction="left"> Please make sure you check the cut-off for your
+                                course then substract from the aggregate you get now<b> Please give feedback</b>
+                            </marquee>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputCity"> <b>Subject</b> </label>
+                                <input type="text" placeholder="Use Of English" class="form-control">
+                                <input type="text" class="form-control" Required>
+                                <input type="text" class="form-control" Required>
+                                <input type="text" class="form-control" Required>
+                                <input type="text" class="form-control" Required>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState"> <b> grades</b></label>
+                                <select id="score-1" class="form-control">
+                                    <option selected value="4.0">A1</option>
+                                    <option value="3.6">B2</option>
+                                    <option value="3.2">B3</option>
+                                    <option value="2.8">C4</option>
+                                    <option value="2.4">C5</option>
+                                    <option value="2.0">C6</option>
+                                </select>
+                                <select id="score-2" class="form-control">
+                                    <option selected value="4.0">A1</option>
+                                    <option value="3.6">B2</option>
+                                    <option value="3.2">B3</option>
+                                    <option value="2.8">C4</option>
+                                    <option value="2.4">C5</option>
+                                    <option value="2.0">C6</option>
+                                </select>
+                                <select id="score-3" class="form-control">
+                                    <option selected value="4.0">A1</option>
+                                    <option value="3.6">B2</option>
+                                    <option value="3.2">B3</option>
+                                    <option value="2.8">C4</option>
+                                    <option value="2.4">C5</option>
+                                    <option value="2.0">C6</option>
+                                </select>
+                                <select id="score-4" class="form-control">
+                                    <option selected value="4.0">A1</option>
+                                    <option value="3.6">B2</option>
+                                    <option value="3.2">B3</option>
+                                    <option value="2.8">C4</option>
+                                    <option value="2.4">C5</option>
+                                    <option value="2.0">C6</option>
+                                </select>
+                                <select id="score-5" class="form-control">
+                                    <option selected value="4.0">A1</option>
+                                    <option value="3.6">B2</option>
+                                    <option value="3.2">B3</option>
+                                    <option value="2.8">C4</option>
+                                    <option value="2.4">C5</option>
+                                    <option value="2.0">C6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputState"> <b> Jamb Score</b></label>
+                            <input type="number" class="form-control" id="input-utme" placeholder="UTME Score" required>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <input type="submit" value="Calculate" class="btn btn-dark btn-block">
+                        </div>
+                    </form>
+                    <!----    LOADER HERE -->
+                    <div id="loading">
+                        <img src="One Moment Please Star Loader.gif" alt="">
+                    </div>
+                    <!-----RESULT-->
+                    <div id="results" class="pt-4">
+                        <h5>Result</h5>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"
+                                    style="background-color: #e6e6e6; border-radius: 3px 0px 3px 0px; padding: 4px;">Utme
+                                    Aggregate</span>
+                                <input type="number" class="form-control" id="output-utme" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addons"
+                                    style="background-color: #e6e6e6; border-radius: 3px 0px 3px 0px; padding: 4px;">
+                                    Olevel Average</span>
+                                <input type="number" class="form-control" id="output-waec" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"
+                                    style="background-color: #e6e6e6; border-radius: 3px 0px 3px 0px; padding: 4px;">Total
+                                    Aggregate</span>
+                                <input type="number" class="form-control" id="total-value" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <b>
+                        <div class="alert alert-success" id="high-msg">well-done <span class="name"></span> you are a schorlar! Keep pushing...Be
+                            relentless, the sky is your limit</div>
+                    </b>
+                    <b>
+                        <div class="alert alert-info" id="low-msg">well-done <span class="name"></span> you can do better! Keep pushing... Work
+                            Hard you will make it</div>
+                    </b>
+                </div>
+
+            </div>
+        </div>
+
+        <style>
+            #high-msg {
+                display: none;
+                color: black;
+            }
+
+            #low-msg {
+                display: none;
+                color: black;
+            }
+
+            .form-control {
+                margin: 4px;
+            }
+        </style>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script src="postutme.js"></script>
+</body>
+
+</html>
